@@ -1,0 +1,36 @@
+<%- include ('partials/header') %>
+<div class="results">
+    <ul id="major">
+            <li><em><span class="key">Title :</span></em> <%= movie.Title %> </li>
+            <li><em><span class="key">Year :</span></em> <%= movie.Year %> </li>
+            <li><em><span class="key">Rated :</span></em> <%= movie.Rated %> </li>
+            <li><em><span class="key">Released :</span></em> <%= movie.Released %> </li>
+            <li><em><span class="key">Runtime :</span></em> <%= movie.Runtime %> </li>
+            <li><em><span class="key">Genre :</span></em> <%= movie.Genre %> </li>
+            <li><em><span class="key">Director :</span></em> <%= movie.Director %> </li>
+            <li><em><span class="key">Language :</span></em> <%= movie.Language %> </li>
+            <li><em><span class="key">Country :</span></em> <%= movie.Country %> </li>
+            <li><em><span class="key">Awards :</span></em> <%= movie.Awards %> </li>
+    </ul>
+
+    <div class="poster">
+        <img src= <%= movie.Poster %>  alt="poster">
+    </div>
+    <ul id="minor">
+           
+                <li><em><span class="key">Writer : </span></em><%= movie.Writer %></li>                           
+                <li><em><span class="key">Actors : </span></em><%= movie.Actors %></li>                           
+                <li><em><span class="key">Plot : </span></em><%= movie.Plot %></li>                           
+                <li><em><span class="key">Metascore : </span></em><%= movie.Metascore %></li>                           
+                <li><em><span class="key">imdbRating : </span></em><%= movie.imdbRating %></li>                           
+                <li><em><span class="key">imdbVotes : </span></em><%= movie.imdbVotes %></li>                           
+                <li><em><span class="key">imdbID : </span></em><%= movie.imdbID %></li>                           
+                <li><em><span class="key">Type : </span></em><%= movie.Type %></li>                           
+                <li><em><span class="key">DVD : </span></em><%= movie.DVD %></li>                           
+                <li><em><span class="key">BoxOffice : </span></em><%= movie.BoxOffice %></li>                           
+                <li><em><span class="key">Production : </span></em><%= movie.Production %></li>                           
+                <li><em><span class="key">Website : </span></em><%= movie.Website %></li>                           
+    </ul>
+</div>
+
+<%- include ('partials/footer') %>
