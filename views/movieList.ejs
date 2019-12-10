@@ -1,0 +1,7 @@
+<%- include ('partials/header') %>
+<ul id="list">
+<% for(var i=0;i<data.Search.length;i++){ %>
+    <li><a href= <%= data.Search[i].imdbID %>><%= data.Search[i].Title %></a></li>
+<% } %>
+</ul>
+<%- include ('partials/footer') %>
