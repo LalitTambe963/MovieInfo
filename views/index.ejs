@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="main">
-        <form action="searchMovie" method="POST">
+        <form action="/searchMovie" method="POST">
             <label for="dropdown">Search By : </label>
             <select name="searchBy" id="dropdown">
                 <option value="s">Title</option>
@@ -18,10 +18,25 @@
                 <option value="type">Type</option>
             </select><br>
             <input type="text" placeholder="Enter the title" name="searchText"><br>
-            <button>Search</button>
+            <button type="submit">Search</button>
         </form>
 
     </div>
     
 </body>
-</html>
+</html> -->
+<%- include ('partials/header') %>
+<div id="main">
+    <form action="searchMovie" method="POST">
+        <label for="dropdown">Search By : </label>
+        <select name="searchBy" id="dropdown">
+            <option value="s">Title</option>
+            <option value="i">IMDb ID</option>
+            <option value="y">Year</option>
+            <option value="type">Type</option>
+        </select><br>
+        <input type="text" placeholder="Enter the title" name="searchText"><br>
+        <button>Search</button>
+    </form>
+</div>
+<%- include ('partials/footer') %>
