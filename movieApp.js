@@ -1,9 +1,7 @@
 var express = require("express");
 var app = express();
 var request = require("request");
-
-global.movieDatas = new Object();
-var movie;
+var apiUrl = "http://www.omdbapi.com/?apikey=93bbec1b&&";
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
@@ -17,48 +15,34 @@ app.listen(3000,function(){
 });
 
 app.get("/",function(req, res){
-    res.render("public/index.html");
+    res.render("index");
 });
 
 app.get("/:imdb",function(req, res){
-    var searchText = req.params.imdb;
-    var searchBy = "i";
-    var url ="http://www.omdbapi.com/?apikey=93bbec1b&&" + searchBy + "=" + searchText;
+    let searchText = req.params.imdb;
+    let searchBy = "i";
+    let url = apiUrl + searchBy + "=" + searchText;
     request(url,function(error,response,body){
         if(!error && response.statusCode == 200){
-            movie = JSON.parse(body);
-            // var array = Object.entries(movie);
+            let movie = JSON.parse(body);
             res.render("movie",{movie:movie});
         } else{
-            // console.log("No Internet Connection");
             console.log(error);
         }
-        // res.send(array); 
-        // console.log(movie); 
-        // res.render("movieList",{data : movieData});
     }); 
 });
 
 app.post("/searchMovie",function(req, res){
-    var searchText = req.body.searchText;
-    var searchBy = req.body.searchBy;
-    movieData = {key : "value"};
-    // console.log(req.body);
-    var url ="http://www.omdbapi.com/?apikey=93bbec1b&&" + searchBy + "=" + searchText;
+    let  searchText = req.body.searchText;
+    let  searchBy = req.body.searchBy;
+    let  url = apiUrl + searchBy + "=" + searchText;
+
     request(url,function(error,response,body){
         if(!error && response.statusCode == 200){
-            movieData = JSON.parse(body);
-            // console.log(movieData);    
+            let movieData = JSON.parse(body);  
             res.render("movieList",{data : movieData});       
         } else{
-            console.log("No Internet Connection");
             console.log(error);
         }
-        // movieDatas = movieData;
-        
-        // console.log(movieData.Search[0]);
-        
     });
-    // console.log(movieDatas);
-    // res.render("movieList",{movies : movieData});
 });
